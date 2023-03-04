@@ -1,0 +1,65 @@
+import tensorflow as tf
+import numpy as np
+
+np.random.seed(0)
+tf.random.set_seed(0)
+
+# %%
+tf.random.set_seed(9)
+t1=tf.random.normal(shap=(3,3)) #random값으로 3 X 3형태로 t1에 입력
+print(t1)
+
+tf.random.set_seed(9)
+t1=tf.random.normal(shap=(3,3)) 
+print(t1)
+
+tf.random.set_seed(9)
+t1=tf.random.normal(shap=(3,3)) 
+print(t1)
+
+tf.random.set_seed(9)
+t1=tf.random.normal(shap=(3,3)) 
+print(t1)
+
+#이렇게 되면 똑같은 랜덤값으로 입력 받음
+# %%
+import matplotlib.pyplot as plt
+t2=tf.random.normal(mean=3, stddev=1, shape=(1000, )) # 평균이 3이고 표준편차가 1인 t2만들기
+
+fig,ax=plt.subplots(figsize=(15,15))
+ax.hist(t2.numpy(), bins=30)
+
+ax.tick_params(labelsize=20)
+
+# %%
+
+t2=tf.random.uniform(shape=(10000,), minval=10, maxval=10)
+
+fig,ax=plt.subplots(figsize=(15,15))
+ax.hist(t2.numpy(), bins=30)
+
+ax.tick_params(labelsize=20)
+
+# %%
+t2=tf.random.poisson(shape=(1000,)
+                     lam=5)
+
+fig,ax=plt.subplots(figsize=(15,15))
+ax.hist(t2.numpy(), bins=30)
+
+ax.tick_params(labelsize=20)
+
+# %%
+#정보를 빼는 방법
+
+t1=tf.random.normal(shape=(128,128,3))
+
+print("t1.shape: ", t1.shape)
+print("t1.dtype", t1.dtype)
+
+# %%
+test_np=np.random.randint(-10,10,size=(100, ))
+print(test_np.dtype)
+
+t1=tf.constant(test_np, dtype=tf.float32) # dtype을 바꿀 수 있다
+print(t1.dtype)
