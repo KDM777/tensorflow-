@@ -1,0 +1,31 @@
+import tensorflow as tf
+import numpy as np
+
+#탠서는 다차원 배열이다.
+
+
+test_list=[1,1,1,1,1]
+
+t1=tf.constant(test_list)
+print(t1)
+
+t2=tf.ones(shape=(100, 3)) #요소가 1이고 shape이 2X3형태의 텐서 
+print(t2)
+
+t3=tf.zeros(shape=(128, 128, 3)) #요소가 0이고 shape이 128X128X3형태의 텐서 
+print(t3)
+
+# %%
+
+t4=3*tf.ones(shape=(128,128, 3)) #요소가 3X1이고 shape이 2X3형태의 텐서 
+print(t4)
+
+# %%
+
+test_list=[[1,2,3], [4,5,6]]
+
+t1=tf.Variable(test_list) #변수화 (?)
+print(t1)
+
+t2=tf.ones_like(t1) # tf.ones(shape=t1.shape)와 같음 즉 t1과 형태를 동일시 함
+print(t2)
